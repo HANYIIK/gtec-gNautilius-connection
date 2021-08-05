@@ -1,0 +1,64 @@
+g.Nautilus config:
+
+    +-----------------------------------+------------------------------------------------------------------------+
+    | Name                              | String holding the serial number of g.Nautilus (e.g. NA-2014.07.67)    |
+    +-----------------------------------+------------------------------------------------------------------------+
+    | DeviceType                        | ``pygds.DEVICE_TYPE_XXX`` constant representing the device type        |
+    +-----------------------------------+------------------------------------------------------------------------+
+    | SamplingRate                      | Specify the sampling frequency of g.Nautilus in Hz as unsigned integer |
+    +-----------------------------------+------------------------------------------------------------------------+
+    | NumberOfScans                     | Specify the buffering block size as unsigned short, possible values    |
+    |                                   | depend on sampling rate, use function ``GetSupportedSamplingRates()``  |
+    |                                   | to get recommended values                                              |
+    +-----------------------------------+------------------------------------------------------------------------+
+    | InputSignal                       | Holds type of input signal, can be 0=Electrode, 1=Shortcut or          |
+    |                                   | 5=TestSignal. See ``pygds.GNAUTILUS_INPUT_SIGNAL_XXX`` constants.      |
+    +-----------------------------------+------------------------------------------------------------------------+
+    | NoiseReduction                    | Bool value enabling noise reduction for g.Nautilus                     |
+    +-----------------------------------+------------------------------------------------------------------------+
+    | CAR                               | Bool value enabling common average calculation for g.Nautilus          |
+    +-----------------------------------+------------------------------------------------------------------------+
+    | AccelerationData                  | Bool value enabling acquisition of acceleration data from g.Nautilus   |
+    |                                   | head stage, adds 3 additional channels to the data acquisition for x,  |
+    |                                   | y, and z direction                                                     |
+    +-----------------------------------+------------------------------------------------------------------------+
+    | Counter                           | show a counter as an additional channel                                |
+    +-----------------------------------+------------------------------------------------------------------------+
+    | LinkQualityInformation            | Bool value enabling additional channel informing about link quality    |
+    |                                   | between head stage and base station                                    |
+    +-----------------------------------+------------------------------------------------------------------------+
+    | BatteryLevel                      | Bool to enable acquisition of additional channel holding information   |
+    |                                   | about remaining battery capacity                                       |
+    +-----------------------------------+------------------------------------------------------------------------+
+    | DigitalIOs                        | Scan the digital channels with the analog inputs and add them as       |
+    |                                   | additional channel acquired                                            |
+    +-----------------------------------+------------------------------------------------------------------------+
+    | ValidationIndicator               | Enables the additional channel validation indicator, informing about   |
+    |                                   | the liability of the data recorded                                     |
+    +-----------------------------------+------------------------------------------------------------------------+
+    | NetworkChannel                    | Unsigned integer value representing the network channel used between   |
+    |                                   | head stage and base station                                            |
+    +-----------------------------------+------------------------------------------------------------------------+
+    | Channels                          | Array of g.Nautilus channel configurations holding properties for each |
+    |                                   | analog channel                                                         |
+    +-----------------------------------+------------------------------------------------------------------------+
+    | Channels[i].ChannelNumber         | Unsigned integer holding the channel number of the analog channel      |
+    +-----------------------------------+------------------------------------------------------------------------+
+    | Channels[i].Enabled               | Bool value selecting the channel for data acquisition                  |
+    +-----------------------------------+------------------------------------------------------------------------+
+    | Channels[i].Sensitivity           | Double value representing the sensitivity of the specified channel     |
+    +-----------------------------------+------------------------------------------------------------------------+
+    | Channels[i].UsedForNoiseReduction | Bool value indicating if channel should be used for noise reduction    |
+    +-----------------------------------+------------------------------------------------------------------------+
+    | Channels[i].UsedForCAR            | Bool value indicating if channel should be used for common average     |
+    |                                   | calculation                                                            |
+    +-----------------------------------+------------------------------------------------------------------------+
+    | Channels[i].BandpassFilterIndex   | Perform a digital bandpass filtering of the input channels. Use        |
+    |                                   | ``GetBandpassFilters()`` to get filter indices.                        |
+    +-----------------------------------+------------------------------------------------------------------------+
+    | Channels[i].NotchFilterIndex      | Perform a bandstop filtering to suppress the power line frequency of   |
+    |                                   | 50 Hz or 60 Hz. Use ``GetNotchFilters()`` to get filter indices.       |
+    +-----------------------------------+------------------------------------------------------------------------+
+    | Channels[i].BipolarChannel        | Select a zero based channel index as reference channel for an analog   |
+    |                                   | channel                                                                |
+    +-----------------------------------+------------------------------------------------------------------------+
