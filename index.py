@@ -28,7 +28,7 @@ TRIGGER_PORT = 50000
 DEVICE_IP = '127.0.0.1'
 DEVICE_PORT = 6001
 
-BLOCK_RUNTIME = 5       # 闪烁时间为 3s
+BLOCK_RUNTIME = 60       # 闪烁时间为 3s
 SAMPLE_RATE = 250       # gNautilus 设备的采样率
 
 
